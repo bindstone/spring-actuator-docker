@@ -1,0 +1,55 @@
+= Docker - Spring Actuator
+
+This is a simple POC for:
+
+* docker
+* docker-compose
+* kubernetes
+* spring actuator
+
+== Install and run as Maven Project
+
+* Download the source file from GITHUB: git clone https://github.com/bindstone/docker-actuator.git
+
+* Build it with: mvn clean install
+
+* You can now run the SpringBoot Server locally with the profile DEV.
+
+== Install and run in Docker
+
+* Download the source file from GITHUB: git clone https://github.com/bindstone/docker-actuator.git
+
+* Run it with: docker-compose --build up
+
+== Results
+
+When starting the docker-compose you should access to the different server and clients.
+
+Rest request:
+
+* Server: http://127.0.0.1:8888/hello[]
+* Client: http://127.0.0.1:8080/hello[]
+
+Also accessing to Actuator: http://127.0.0.1:8888/#/wallboard[]
+
+image:https://github.com/bindstone/docker-actuator/blob/master/screenshots/actuator-wallboard.png[]
+
+Shows you tree running services, and one client has currently 2 running instances and for the multi step build a separate.
+
+and you can click on the services to get more details like:
+
+image:https://github.com/bindstone/docker-actuator/blob/master/screenshots/actuator-details.png[]
+
+== Links
+
+=== Docker
+
+https://docs.docker.com/[]
+
+=== Spring Actuator
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready.html[]
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints[]
+
+https://github.com/codecentric/spring-boot-admin[]

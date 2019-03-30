@@ -1,0 +1,24 @@
+version: '3'
+services:
+  actuator-server:
+    container_name: actuator-server
+    environment:
+      - DOCKER_PORT=8888
+      - DOCKER_AC_SERVER=http://actuator-server:8888
+      - DOCKER_AC_CLIENT=http://actuator-server:8888
+    build:
+      context: ./actuator-server
+      dockerfile: Dockerfile
+    ports:
+      - '8888:8888'
+  actuator-client:
+    container_name: actuator-client
+    environment:
+      - DOCKER_PORT=8080
+      - DOCKER_AC_SERVER=http://actuator-server:8888
+      - DOCKER_AC_CLIENT=http://actuator-client:8080
+    build:
+      context: ./actuator-client
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'

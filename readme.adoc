@@ -21,6 +21,44 @@ This is a simple POC for:
 
 * Run it with: docker-compose --build up
 
+== Kubernetes
+
+Requirements:
+
+* A version of https://www.virtualbox.org/[VirtualBox]
+
+* A version of https://kubernetes.io/docs/tasks/tools/install-kubectl/[kubectl]
+
+** brew install kubectl
+
+** brew cask install minikube
+
+** minikube start
+
+Install:
+
+kubectl apply -f k8s
+
+Hints:
+
+kubectl get deployments
+
+kubectl get services
+
+kubectl get pods
+
+kubectl logs <pod-name>
+
+https://github.com/StephenGrider/multi-k8s
+
+Ingress:
+
+https://kubernetes.github.io/ingress-nginx/
+
+minikube addons enable ingress
+
+minikube dashboard
+
 == Results
 
 When starting the docker-compose you should access to the different server and clients.
@@ -45,6 +83,11 @@ image:https://github.com/bindstone/docker-actuator/blob/master/screenshots/actua
 === Docker
 
 https://docs.docker.com/[]
+
+Docker Images:
+
+* https://cloud.docker.com/repository/docker/bindstone/actuator-server[]
+* https://cloud.docker.com/repository/docker/bindstone/actuator-client[]
 
 === Spring Actuator
 

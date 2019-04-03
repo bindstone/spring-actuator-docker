@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: bindstone/actuator-server
+          ports:
+            - containerPort: 8888
+          env:
+            - name: DOCKER_PORT
+              value: "8888"
+            - name: DOCKER_AC_CLIENT
+              value: server-cluster-ip-service
+            - name: DOCKER_AC_SERVER
+              value: server-cluster-ip-service
